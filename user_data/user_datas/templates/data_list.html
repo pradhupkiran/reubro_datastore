@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+
+        data list
+
+{% endblock %}
+
+{% block title %}
+    data list
+
+{% endblock %}
+
+{% block body %}
+<div>
+  <nav class="navbar navbar-light bg-light">
+  <form class="form-inline" action="{% url 'search_by_country' %}">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+<!--      <th scope="col">Sl no</th>-->
+      <th scope="col">Name</th>
+      <th scope="col">Website</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Tel no</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+      <th scope="col">Town</th>
+      <th scope="col">Country</th>
+      <th scope="col">Technology</th>
+      <th scope="col">Contact Person</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in all_data %}
+    <tr>
+<!--      <th scope="row">{{i.id}}</th>-->
+      <td>{{i.name}}</td>
+      <td>{{i.website}}</td>
+      <td>{{i.email_id}}</td>
+      <td>{{i.tel_no}}</td>
+      <td>{{i.address}}<br>
+          <br>
+          {{i.address2}}  </td>
+      <td>{{i.city}}</td>
+      <td>{{i.town}}</td>
+      <td>{{i.country}}</td>
+      <td>{{i.technology}}<br>
+          {{i.technology_2}} </td>
+      <td>{{i.contact_person}}</td>
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock %}
+

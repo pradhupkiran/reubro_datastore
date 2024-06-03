@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact List</title>
+</head>
+<body>
+    <h1>Contact List</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search by name">
+        <button type="submit">Search</button>
+        <a href="{% url 'download_excel' %}?q={{ request.GET.q }}">Download as Excel</a>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Website</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Town</th>
+                <th>Country</th>
+                <th>Technology</th>
+                <th>Contact Person</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.website }}</td>
+                <td>{{ contact.email_id }}</td>
+                <td>{{ contact.tel_no }}</td>
+                <td>{{ contact.address }}</td>
+                <td>{{ contact.city }}</td>
+                <td>{{ contact.town }}</td>
+                <td>{{ contact.country }}</td>
+                <td>{{ contact.technology }}</td>
+                <td>{{ contact.contact_person }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

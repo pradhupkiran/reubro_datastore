@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+
+        contact us
+
+{% endblock %}
+
+{% block title %}
+    contact us
+
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+<a href="{% url 'data_list' %}"><button class="btn btn-primary">show all data</button></a>
+  </div>
+
+    <div class="container mt-5">
+        <h2 class="mb-5">Contact Form</h2>
+        <form action=" " method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="website">Website:</label>
+                <input type="text" class="form-control" id="website" name="website" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control mt-3" id="email_2" name="email_2" placeholder="(optional)">
+            </div>
+            <div class="form-group">
+                <label for="tel">Tel No:</label>
+                <input type="tel" class="form-control" id="tel" name="tel" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+                <input type="text" class="form-control mt-3" id="address_2" name="address_2" placeholder="(optional)">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="town">Town:</label>
+                <input type="text" class="form-control" id="town" name="town" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" class="form-control" id="country" name="country" required>
+            </div>
+            <div class="form-group">
+                <label for="technology">Technology:</label>
+                <input type="text" class="form-control" id="technology" name="technology" required>
+                <input type="text" class="form-control mt-3" id="technology_2" name="technology_2" placeholder="(optional)">
+                <input type="text" class="form-control mt-3" id="technology_3" name="technology_3" placeholder="(optional)">
+            </div>
+            <div class="form-group">
+                <label for="contact_person">Contact Person:</label>
+                <input type="text" class="form-control" id="contact_person" name="contact_person" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+{% endblock %}

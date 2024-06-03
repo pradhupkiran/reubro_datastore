@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+
+        search data list
+
+{% endblock %}
+
+{% block title %}
+    search data list
+
+{% endblock %}
+
+{% block body %}
+<div>
+<a href="{% url 'contact' %}"><button class="btn btn-primary">Fill form</button></a>
+</div>
+
+    <h1>Search Contacts by Country</h1>
+    <form method="get">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search by country">
+        <button type="submit">Search</button>
+        <button type="submit" name="download" value="1">Download as Excel</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+<!--                <th>ID</th>-->
+                <th>Name</th>
+                <th>Website</th>
+                <th>Email</th>
+                <th>Email 2</th>
+                <th>Telephone</th>
+                <th>Address</th>
+                <th>Address 2</th>
+                <th>City</th>
+                <th>Town</th>
+                <th>Country</th>
+                <th>Technology</th>
+                <th>Technology 2</th>
+                <th>Contact Person</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+<!--                <td>{{ contact.id }}</td>-->
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.website }}</td>
+                <td>{{ contact.email_id }}</td>
+                <td>{{ contact.email_id_2 }}</td>
+                <td>{{ contact.tel_no }}</td>
+                <td>{{ contact.address }}</td>
+                <td>{{ contact.address2 }}</td>
+                <td>{{ contact.city }}</td>
+                <td>{{ contact.town }}</td>
+                <td>{{ contact.country }}</td>
+                <td>{{ contact.technology }}</td>
+                <td>{{ contact.technology_2 }}</td>
+                <td>{{ contact.contact_person }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
